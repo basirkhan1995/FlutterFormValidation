@@ -4,9 +4,17 @@ import 'package:flutter/services.dart';
 class InputField extends StatelessWidget {
   final String label;
   final IconData? icon;
+
+  // Controller | to take the value from user in text field
   final TextEditingController? controller;
+
+  //Validator | Check the value whether it's validated or not
   final FormFieldValidator? validator;
+
+  // Text Input Formatter | Allows or denies specific data format
   final List<TextInputFormatter>? inputFormat;
+
+  //Text Input Type | Used to show specific keyboard layout to users
   final TextInputType? inputType;
   final Widget? trailing;
   final bool isVisible;
@@ -33,6 +41,8 @@ class InputField extends StatelessWidget {
         keyboardType: inputType,
         //Automatically validates without pressing the button
         autovalidateMode: AutovalidateMode.onUserInteraction,
+
+        // ObscureText | Shows or hides text field's value to users
         obscureText: isVisible,
         decoration: InputDecoration(
 
@@ -41,6 +51,7 @@ class InputField extends StatelessWidget {
           prefixIcon: Icon(icon),
           suffixIcon: trailing,
 
+          //enabledBorder | Default Text field decoration
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide(
@@ -49,6 +60,7 @@ class InputField extends StatelessWidget {
             ),
           ),
 
+          // FocusedBorder | OnClick decoration
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
             borderSide: const BorderSide(
@@ -57,6 +69,7 @@ class InputField extends StatelessWidget {
             ),
           ),
 
+          //errorBorder | Default error decoration border
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide(
@@ -65,6 +78,7 @@ class InputField extends StatelessWidget {
             ),
           ),
 
+          //focusedErrorBorder | onClick decoration border
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide(

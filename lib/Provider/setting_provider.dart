@@ -7,6 +7,8 @@ class SettingsProvider extends ChangeNotifier{
 
   //Strong password requirement
   RegExp strongPassword = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*~]).{8,}$');
+
+  //Validated Email format
   RegExp emailRequirement = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 
   //General Validator
@@ -30,17 +32,16 @@ class SettingsProvider extends ChangeNotifier{
     }
   }
 
-  //Password validator | Strong password
   //Strong password requirement
-
   /*
   1. must have a small letter
   2. must have a capital letter
   3. must have a digit or number
   4. contain a special character
   5. minimum 8 character long
-
    */
+
+  //Password validator | Strong password
   passwordValidator(String value){
     if(value.isEmpty){
       return "Password is required";
@@ -62,6 +63,7 @@ class SettingsProvider extends ChangeNotifier{
     }
   }
 
+  //Note | If you don't want any text field as required | remove the value.isEmpty condition
   //Email validator
   emailValidator(String value){
     if(value.isEmpty){
@@ -82,7 +84,6 @@ class SettingsProvider extends ChangeNotifier{
   //SnackBar Message
   showSnackBar(String message,context){
     ScaffoldMessenger.of(context).showSnackBar(
-
       SnackBar(
           behavior: SnackBarBehavior.floating,
           content: Text(message))
